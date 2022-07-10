@@ -1,0 +1,113 @@
+.logo {
+  margin-top: -60px;
+  width: 150px;
+  position: absolute;
+}
+
+/* Documento Renta */
+.img-1 {
+  position: absolute;
+  margin-top: -5px;
+  margin-left: 1px;
+  height: 90px;
+}
+
+.foot-1 {
+  position: absolute;
+  margin-top: 22px;
+  margin-left: -50px;
+  height: 90px;
+}
+
+.img-2 {
+  position: absolute;
+  margin-top: -100px;
+  margin-left: -85px;
+  height: 90px;
+}
+
+.foot-2 {
+  position: absolute;
+  margin-top: 80px;
+  margin-left: -50px;
+  height: 90px;
+}
+
+.img-3 {
+  position: absolute;
+  margin-top: -100px;
+  margin-left: -50px;
+  height: 90px;
+}
+
+.foot-3 {
+  position: absolute;
+  /* margin-top: 10px; */
+  margin-left: -50px;
+  height: 90px;
+}
+.cuerpo {
+  background-color: #f8f9fa;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#visor {
+  /* background-color: rgb(255, 255, 255); */
+  /* margin-top: -30px; */
+  /* width: 720px; */
+  height: 960px;
+  /* margin: 0 auto; */
+  /* box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+  padding: 96px;
+}
+
+#visor p {
+  font-size: 13px;
+  text-align: justify;
+}
+
+/* #sidebar {
+  display: none;
+} */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.dec-center {
+  text-align: center;
+  font-size: 17px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.plan {
+  text-align: right;
+}
+
+pre {
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+span {
+  font-size: 12px;
+}
+
+/* Botones */
+.botones {
+  position: absolute;
+}
+
+.noimp{
+  display: none;
+}
