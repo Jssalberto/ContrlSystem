@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <!-- <title>Visor de Documentos</title> -->
-
-    <!-- CSS  -->
-    <link href="static/css/docs/doc.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="static/css/docs/print.css" type="text/css" rel="stylesheet" media="print"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="botones">
-      <input type='button' value='Imprimir' onClick='window.print()'; class='noimp'>
-    </div>
-    <div class="cuerpo">
-      <div id="visor">            
+{% extends 'estructura.html'%}
+{% block content %}
+<br>
+<br>
+<br>
+<input type='button' value='Imprimir' onClick='window.print()'; class='noimp'>
+<div class="cuerpo">
+  <div id="visor">            
             <img class="logo" src="/static/assets/img/logo.png">
                 <br>
                 <div class="plan">
@@ -34,12 +24,11 @@
                 <pre><span>Concepto</span></pre>
                 <pre><b>Por concepto de: </b><ins>Anticipo pantalla para laptop</ins></pre>
                 <pre><b>Quien Entrega de:</b>______________________ <b>Quien Recibe:</b>______________________</pre>
-                <pre><b>                                     Moises Cervantes                                         Carlos Solis</b></pre>
+                <pre><b>                    Moises Cervantes                      Carlos Solis</b></pre>
                 <br>
                 <p style="text-align: center;"><b>CALLE 5 DE MAYO 10-A, CENTRO HISTÓRICO SAN CRISTOBAL DE LAS CASAS CHIAPAS</b></p>
                 <p style="text-align: center;"><b>967 631 7795</b></p>
                 <p style="text-align: center;"><b><a href="mailto:">agstecnologia@aoutloo</a></b></p>
         </div>
     </div>
-  </body>
-</html>
+{% endblock %}

@@ -8,7 +8,7 @@
 .img-1 {
   position: absolute;
   margin-top: 5px;
-  /* margin-left: 305px; */
+  margin-left: 115px;
   height: 90px;
   /* margin-left: 305px; */
 }
@@ -56,12 +56,12 @@
 }
 
 #visor{
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   margin-top: -30px;
-    /* width: 720px; */
+    width: 910px;
     height: 960px;
     margin: auto;
-    box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
     padding: 96px;    
     /* background-image: url("/static/assets/img/doc.jpg"); */
     background-repeat: no-repeat; 
@@ -114,18 +114,19 @@ span{
     border: none;
     border-radius: 10px;
     color: white;
-    padding: 15px 41px;
+    padding: 10px 29px;
     text-align: center;
     text-decoration: none;
     display: flex;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 1px 2px;
     cursor: pointer;
 }
 
 /* Botones */
 .botones{
   position: absolute;
+  margin-left: -100px;
 }
 
 .btn1{
@@ -133,7 +134,7 @@ span{
   border: none;
   border-radius: 10px;
   color: white;
-  padding: 15px 40px;
+  padding: 10px 30px;
   text-align: center;
   text-decoration: none;
   display: flex;
@@ -146,7 +147,7 @@ span{
   border: none;
   border-radius: 10px;
   color: white;
-  padding: 15px 34px;
+  padding: 10px 24px;
   text-align: center;
   text-decoration: none;
   display: flex;
@@ -159,11 +160,11 @@ span{
   border: none;
   border-radius: 10px;
   color: white;
-  padding: 14px 39px;
+  padding: 9px 29px;
   text-align: center;
   text-decoration: none;
   display: flex;
   font-size: 16px;
-  margin: 4px 1px;
+  margin: 4px 2px;
   cursor: pointer;
 }

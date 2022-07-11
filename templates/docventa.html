@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <!-- <title>Visor de Documentos</title> -->
-
-    <!-- CSS  -->
-    <link href="static/css/docs/doc.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="static/css/docs/print.css" type="text/css" rel="stylesheet" media="print"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-
+{% extends 'estructura.html'%}
+{% block content %}
+<section class="container">
+<br>
+<br>
+<br>
     <div class="botones">
       <input type="button" value="Finalizar" onClick=location.href="{{url_for('finalizado')}}" class="btn1">
       <input type="button" value="Pendiente" onClick=location.href="{{url_for('pendientes')}}" class="btn2">
@@ -22,7 +14,7 @@
     <div class="cuerpo">
         <img class="img-1" src="/static/assets/img/head.jpeg" >
 
-        <div id="visor">
+        <div id="visor" class="renta">
             
             <div class="plan">
                 <pre><b>Cuenta:</b> <span style="font-size: 13px;">158</span></pre>
@@ -41,7 +33,7 @@
                     CONTRATANTES SE LES DENOMINARÁ “LAS PARTES”, AL TENOR DE LAS SIGUIENTES DECLARACIONES Y CLÁUSULAS:
                 </p>
     
-                <h3 class="dec-center">DECLARACIONES</h3>
+                <h3 class="dec-center"><b>DECLARACIONES</b></h3>
                 <p><b>I.- DECLARA “LA EMPRESA”</b></p>
                 <p><b>A).-</b>SER UNA PERSONA MORAL CONSTITUIDA CONFORME A LAS LEYES MEXICANAS, MEDIANTE FOLIO DE CONSTITUCIÓN NÚMERO SAS-1.2-202003-292932, DE FECHA 23 DE MARZO DE 2020, CON DOMICILIO  UBICADO EN LA CALLE 5 DE FEBRERO NÚMERO 19, BARRIO LA MERCED DE LA CIUDAD DE SAN CRISTÓBAL  DE LAS CASAS, CHIAPAS, C.P. 29240; TENIENDO COMO OBJETO SOCIAL ENTRE OTROS EL SERVICIO DE PROTECCIÓN Y CUSTODIA MEDIANTE EL MONITOREO DE SISTEMAS DE SEGURIDAD, REPRESENTADA EN ESTE ACTO POR EL C. ALBERTO GORDILLO GORDILLO, EN SU CARÁCTER DE ADMINSITRADOR CONFORME  A LO DISPUESTO POR LOS PÁRRAFOS PRIMERO, SEGUNDO Y TERCERO DEL  ARTICULO 267 DE LA LEY GENERAL DE SOCIEDADES MERCANTILES, QUIEN CUENTA ENTRE OTRAS FACULTADES COMO LAS DE CELEBRAR CONTRATOS PRIVADOS, COMO EN EL PRESENTE CASO, SEGÚN EL INCISO B) DE LA CLÁUSULA OCTAVA DEL ACTA CONSTITUTIVA DE FOLIO ANTES MENCIONADO, ESTANDO EN PLENO USO DE SUS FACULTADES MENTALES.</p>
                 <p><b>B).-</b>QUE CUENTA CON LA INFRAESTRUCTURA, PERSONAL CON CAPACIDAD Y PREPARACIÓN PARA LA PRESTACIÓN DEL SERVICIO OBJETO DE ESTE CONTRATO, ASÍ COMO CON LOS EQUIPOS SUFICIENTES PARA EL CUMPLIMIENTO DEL FIN DE ESTE PACTO DE VOLUNTADES.</p>                
@@ -55,7 +47,7 @@
                 <p><b>C.-</b>QUE ES SU VOLUNTAD CONTRATAR LOS SERVICIOS QUE REALIZA “LA EMPRESA” CONSISTENTES EN EL SERVICIO DE MONITOREO DE EQUIPOS DE ALARMA.</p>
                 <p><b>D)-</b>QUE CONOCE Y COMPRENDE EL CONTENIDO, NATURALEZA Y ALCANCE LEGAL DE ESTE CONTRATO Y QUE EL MISMO SE CELEBRA DE CONFORMIDAD A LA LEGISLACIÓN CIVÍL APLICABLE Y POR LO TANTO SUJETA SU COMPROMISO A LA FORMA, TERMINOS Y CONDICIONES QUE SE ESTABLECEN EN LAS SIGUIENTES:</p>
                 
-                <h3 class="dec-center">CLAUSULAS</h3>
+                <h3 class="dec-center"><b>CLAUSULAS</b></h3>
                 <p><b>PRIMERA.- “LAS PARTES”</b> CONTRATANTES RECONOCEN SU CAPACIDAD Y PERSONALIDAD CON LA QUE COMPARECEN A LA CELEBRACIÓN DEL PRESENTE INSTRUMENTO.</p>
                 <p><b>SEGUNDA. -</b> 
                     EL PRESENTE CONTRATO TENDRÁ UNA VIGENCIA DE <span>1</span> AÑO A PARTIR DEL DIA <span>18 DE MARZO DEL 2022</span> AL <span>18 DE MARZO DEL 2023</span>. 
@@ -98,9 +90,9 @@
                 <br>
                     
                     
-                    <pre>                          <b>"LA EMPRESA"</b>                                                                              <b>"EL CLIENTE"</b></pre>
-                    <pre>          _____________________________                                              _____________________________</pre>
-                    <pre>        <b>C. ALBERTO GORDILLO GORDILLO.</b>                                                    <b>C. ISAIAS DIAZ JIMENEZ</b></pre>
+                    <pre>                <b>"LA EMPRESA"</b>                                                <b>"EL CLIENTE"</b></pre>
+                    <pre>          _____________________________                           _____________________________</pre>
+                    <pre>        <b>C. ALBERTO GORDILLO GORDILLO.</b>                                 <b>C. ISAIAS DIAZ JIMENEZ</b></pre>
                     <pre>                 AGS TECNOLOGIA</pre>
                     <pre>               RFC: GOGA720130NC2</pre> 
                     <br>
@@ -110,6 +102,5 @@
             
         </div>
     </div>
-  </body>
-  </html>
-  
+</section>
+{% endblock %}

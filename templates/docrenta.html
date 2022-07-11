@@ -1,21 +1,21 @@
-
 {% extends 'estructura.html'%}
 {% block content %}
-<br>
-<br>
 <section class="container">
+<br>
+<br>
+<br>
   <div class="botones">
       <input type="button" value="Finalizar" onClick=location.href="{{url_for('finalizado')}}" class="btn1">
       <input type="button" value="Pendiente" onClick=location.href="{{url_for('pendientes')}}" class="btn2">
       <input type="button" value="Cancelar" onClick=location.href="{{url_for('cancelados')}}" class="btn3">
-      <input type='button' value='Imprimir' onClick='window.print()' ; class='noimp'>
+      <input type='button' value='Imprimir' onClick='window.print()' class='noimp'>
     </div>
 
     <div class="cuerpo">
       <img class="img-1" src="/static/assets/img/head.jpeg">
       <div id="visor" class="renta">
         <div class="plan">
-          <pre><b>Cuenta:</b> <span style="font-size: 13px;"></span></pre>
+          <pre><b>Cuenta:</b> <span style="font-size: 13px;">23</span></pre>
           <pre><b>Tipo de plan:</b> <span style="font-size: 13px;">Renta</span></pre>
           <pre><b>Cuota Mensual:</b> <span style="font-size: 13px;">$489</span></pre>
         </div>
@@ -31,7 +31,7 @@
             CONTRATANTES SE LES DENOMINARÁ “LAS PARTES”, AL TENOR DE LAS SIGUIENTES DECLARACIONES Y CLÁUSULAS:
           </p>
 
-          <h3 class="dec-center">DECLARACIONES</h3>
+          <h3 class="dec-center"><b>DECLARACIONES</b></h3>
           <p><b>I.- DECLARA “LA EMPRESA”</b></p>
           <p><b>A).-</b>SER UNA PERSONA MORAL CONSTITUIDA CONFORME A LAS LEYES MEXICANAS, MEDIANTE FOLIO DE CONSTITUCIÓN
             NÚMERO SAS-1.2-202003-292932, DE FECHA 23 DE MARZO DE 2020, CON DOMICILIO UBICADO EN LA CALLE 5 DE FEBRERO
@@ -62,7 +62,7 @@
             SE CELEBRA DE CONFORMIDAD A LA LEGISLACIÓN CIVÍL APLICABLE Y POR LO TANTO SUJETA SU COMPROMISO A LA FORMA,
             TERMINOS Y CONDICIONES QUE SE ESTABLECEN EN LAS SIGUIENTES:</p>
 
-          <h3 class="dec-center">CLAUSULAS</h3>
+          <h3 class="dec-center"><b>CLAUSULAS</b></h3>
           <p><b>PRIMERA.- “LAS PARTES”</b> CONTRATANTES RECONOCEN SU CAPACIDAD Y PERSONALIDAD CON LA QUE COMPARECEN A LA
             CELEBRACIÓN DEL PRESENTE INSTRUMENTO.</p>
           <p><b>SEGUNDA. -</b>
@@ -183,11 +183,11 @@
           <br>
 
 
-          <pre>                          <b>"LA EMPRESA"</b>                                                                              <b>"EL CLIENTE"</b></pre>
-          <pre>          _____________________________                                              _____________________________</pre>
-          <pre>        <b>C. ALBERTO GORDILLO GORDILLO.</b>                                                    <b>C. ISAIAS DIAZ JIMENEZ</b></pre>
-          <pre>                 AGS TECNOLOGIA</pre>
-          <pre>               RFC: GOGA720130NC2</pre>
+          <pre>                  <b>"LA EMPRESA"</b>                                     <b>"EL CLIENTE"</b></pre>
+          <pre>          _____________________________                   _____________________________</pre>
+          <pre>          <b>C. ALBERTO GORDILLO GORDILLO.</b>                       <b>C. ISAIAS DIAZ JIMENEZ</b></pre>
+          <pre>                  AGS TECNOLOGIA</pre>
+          <pre>                RFC: GOGA720130NC2</pre>
           <br>
           <img class="foot-3" src="/static/assets/img/footer.jpeg">
         </div>

@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 # ______________ Rutas Principales ______________
 
-@app.route('/login', methods=['GET'])
+@app.route('/', methods=['GET'])
 def login():
     return render_template('login.html')
 
@@ -81,7 +81,7 @@ def planrenta():
         #lista_indice_final_renta = list(lista_indice_renta )
         return render_template('planrenta.html',elemento_registros_renta =  lista_registros_renta.values(),  )
     except:
-        return render_template('docrenta.html')
+        return render_template('planrenta.html')
 
 @app.route('/save_data_renta', methods=['POST'])
 def save_data_renta():
@@ -131,10 +131,13 @@ def cancelados():
     return render_template('cancelado.html')
 
 # ______________ Facturación ______________
+@app.route('/planrecibo')
+def planrecibo():
+    return render_template('planrecibo.html')
 
 @app.route('/recibo', methods=['GET'])
 def recibo():
-    return render_template('login.html')
+    return render_template('recibo.html')
 
 if __name__=='__main__':
     app.run(debug = True)
