@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 # ______________ Rutas Principales ______________
 
-@app.route('/login', methods=['GET'])
+@app.route('/', methods=['GET'])
 def login():
     return render_template('login.html')
 
