@@ -1,0 +1,105 @@
+{% extends 'estructura.html'%}
+{% block content %}
+<!-- HEREDA DE UNA BASE-->
+<!-- EL CONTENEDOR -->
+<br>
+<br>
+<section class="container">
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-2">
+                <h3 class="mt-4"><b class="text-muted"><i>Lista de Rentas</i></b></h3>
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                      <a href="{{url_for('formplanrenta')}}"> <button type="button"
+                            class="btn btn-outline-secondary border-2 border_tem"><b><i>Registrar</i></b></button></a>
+                    </div>
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                        <a href="{{url_for('documentrenta')}}"> <button type="button"
+                              class="btn btn-outline-info border-2 border_tem"><b><i>Document</i></b></button></a>
+                      </div>
+                </div>
+                <br>
+                <div class="card mb-4 border border-3 border_card">
+                    <div class="card-header text-muted">
+                        <i class="fas fa-table me-1"></i>
+                        Tabla de Registros
+                    </div>
+                    <div class="card-body">
+                        <!-- TABLA DE FORMULARIO DE LA BASE DE DATOS DE FIREBASE-->
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr class="table-info">
+                                    <th><i>Cuenta</i></th>
+                                    <th><i>Cuota Mensual</i></th>
+                                    <th><i>Nombre Cliente</i></th>
+                                    <th><i>Domicilio</i></th>
+                                    <th><i>Fecha</i></th>
+                                    <th><i>Persona</i></th>
+                                    <th><i>Ciudad</i></th>
+                                    <th><i>Precio</i></th>
+                                    <th><i>Equipos</i></th>
+                                    <th><i>Document</i></th>
+                                    <th><i>Opciones</i></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th><i>Cuenta</i></th>
+                                    <th><i>Cuota Mensual</i></th>
+                                    <th><i>Nombre Cliente</i></th>
+                                    <th><i>Domicilio</i></th>
+                                    <th><i>Fecha</i></th>
+                                    <th><i>Persona</i></th>
+                                    <th><i>Ciudad</i></th>
+                                    <th><i>Precio</i></th>
+                                    <th><i>Equipos</i></th>
+                                    <th><i>Document</i></th>
+                                    <th><i>Opciones</i></th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <!-- EXTRAER DATOS DE FIREBASEE-->
+                                {% set contador_renta=namespace( value=0) %}
+                                {% for renta in registros_renta %}
+                                    <tr>
+                                        <td>{{renta.cuenta}}</td>
+                                        <td>{{renta.cuotamensual}}</td>
+                                        <td>{{renta.nombrecliente}}</td>
+                                        <td>{{renta.domicilio}}</td>
+                                        <td>{{renta.fecha}}</td>
+                                        <td>{{renta.persona}}</td>
+                                        <td>{{renta.ciudad}}</td>
+                                        <td>{{renta.precio}}</td>
+                                        <td>{{renta.equipos}}</td>
+                                        <th>
+                                            <a href="{{url_for('imprimir_document_renta')}}" class="btn btn-outline-success">Imprimir</a>
+                                        </th>
+                                        <td>
+                                            <a class="dltBtnx btn btn-outline-danger border_tem" data-id="{{lista_indice_final_renta[contador_renta.value]}}" href="javascript:void(0)">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    {% set contador_renta.value=contador_renta.value + 1 %}
+                                {% endfor %} 
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+
+<!-- VENTANA EMERGENTE  PARA ELIMINAR VENTANA-->
+{% block eliminar_ventana %}
+<!-- ----------------Estas librerias son necesarias para la ventana modal------------------------------------------>
+<script
+src="https://code.jquery.com/jquery-3.6.0.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+<script src="/static/js/delete.js"></script>
+{% endblock %}
+
+{% endblock %}

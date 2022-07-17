@@ -25,10 +25,11 @@
     <link href="/static/css/theme.css" rel="stylesheet" media="all">
 
   
+    <link rel="shortcut icon" type="image/png" href="/static/assets/img/logo.png">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <!-- <title>Visor de Documentos</title> -->
-
     <!-- CSS  -->
     <link href="static/css/doc.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="static/css/print.css" type="text/css" rel="stylesheet" media="print" />
@@ -43,9 +44,15 @@
     
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3" href="#">SEGURIDAD ACTIVA</a>
+      <a class="navbar-brand ps-3" href="#" style="color: #00ACC1;">SEGURIDAD ACTIVA</a>
       <!-- Sidebar Toggle-->
-      <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="{{url_for('inicio')}}"><i class="fas fa-bars"></i></button>     
+      <!-- <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="{{url_for('inicio')}}"><i class="fas fa-bars"></i></button>    -->
+      <div class="bars__menu" id="sidebarToggle">
+        <span class="line1__bars-menu"></span>
+        <span class="line2__bars-menu"></span>
+        <span class="line3__bars-menu"></span>
+
+    </div>     
       <!-- Navbar Search-->
       <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
@@ -59,7 +66,7 @@
       <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw iconlogin"></i></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li>
               <a class="dropdown-item" href="{{ url_for('login') }}">Cerrar Sesión</a>
@@ -81,32 +88,19 @@
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>
-                Generar Contrato
+                Registros
                 <div class="sb-sidenav-collapse-arrow">
                   <i class="fas fa-angle-down"></i>
                 </div>
               </a>
-
               <div class="collapse" id="collapseLayoutsFor" aria-labelledby="headingFor" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="{{url_for('planventa')}}">Plan renta</a>
-                </nav>
-              </div>
-
-              <div class="collapse" id="collapseLayoutsFor" aria-labelledby="headingFor" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="{{url_for('planventa')}}">Plan Venta</a>
-                </nav>
-              </div>
-
-              <div class="collapse" id="collapseLayoutsFor" aria-labelledby="headingFor" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="{{url_for('docrenta')}}">Document renta</a>
+                  <a class="nav-link" href="{{url_for('tableregistroventa')}}">Contratos Ventas</a>
                 </nav>
               </div>
               <div class="collapse" id="collapseLayoutsFor" aria-labelledby="headingFor" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="{{url_for('docventa')}}">Document venta</a>
+                  <a class="nav-link" href="{{url_for('tableregistrorenta')}}">Contratos Rentas</a>
                 </nav>
               </div>
 
@@ -118,6 +112,12 @@
                   <i class="fas fa-tachometer-alt"></i>
                 </div>
                 Contrato General
+              </a>
+              <a class="nav-link" href="{{url_for('FastAPI')}}">
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                Prueba
               </a>
 
               <!-- Contratos Pendientes -->
@@ -149,7 +149,7 @@
 
               <div class="sb-sidenav-menu-heading">Facturacion</div>
               <!-- Recibos -->
-              <a class="nav-link" href="{{url_for('recibo')}}">
+              <a class="nav-link" href="{{url_for('formrecibo')}}">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>
@@ -188,5 +188,9 @@
     <script src="/static/assets/demo/chart-area-demo.js"></script>
     <script src="/static/assets/demo/chart-bar-demo.js"></script>
     <script src="/static/js/datatables-simple-demo.js"></script>
+    <script src="/static/js/delete.js"></script>
+
+    {% block eliminar_ventana%}
+    {% endblock %}
   </body>
 </html>

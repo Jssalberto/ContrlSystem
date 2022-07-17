@@ -7,43 +7,43 @@
 /* Documento Renta */
 .img-1 {
   position: absolute;
-  margin-top: -5px;
-  margin-left: 1px;
-  height: 90px;
+    margin-top: -30px;
+    /* margin-left: -1px; */
+    height: 90px;
 }
 
 .foot-1 {
   position: absolute;
   margin-top: 22px;
-  margin-left: -50px;
+  margin-left: -23px;
   height: 90px;
 }
 
 .img-2 {
   position: absolute;
-  margin-top: -100px;
-  margin-left: -85px;
+  margin-top: -120px;
+  margin-left: -95px;
   height: 90px;
 }
 
 .foot-2 {
   position: absolute;
   margin-top: 80px;
-  margin-left: -50px;
+  margin-left: -23px;
   height: 90px;
 }
 
 .img-3 {
   position: absolute;
-  margin-top: -100px;
-  margin-left: -50px;
+  margin-top: -120px;
+  margin-left: -95px;
   height: 90px;
 }
 
 .foot-3 {
   position: absolute;
-  /* margin-top: 10px; */
-  margin-left: -50px;
+  /* margin-top: 50px; */
+  margin-left: -23px;
   height: 90px;
 }
 .cuerpo {
@@ -53,16 +53,20 @@
 
 #visor {
   /* background-color: rgb(255, 255, 255); */
-  /* margin-top: -30px; */
-  /* width: 720px; */
+  margin-top: -40px;
+  border: -10px;
+  /* width: 1020px;
+  height: 860px; */
+  width: 992px;
   height: 960px;
+    /* height: 960px; */
   /* margin: 0 auto; */
   /* box-shadow: rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
   padding: 96px;
 }
 
 #visor p {
-  font-size: 13px;
+  font-size: 13.5px;
   text-align: justify;
 }
 
@@ -105,9 +109,47 @@ span {
 
 /* Botones */
 .botones {
-  position: absolute;
+  /* position: absolute; */
+  display: none;
 }
 
 .noimp{
+  /* position: absolute; */
   display: none;
 }
+
+.sb-sidenav-menu{
+  display: none;
+}
+
+#layoutSidenav_nav{
+  display: none;
+}
+
+/* .layoutSidenav{
+  position: absolute;
+  display: none;
+} */
+
+/* #sidebar {
+position: absolute;
+} */
+
+/* #head{
+  position: absolute;
+} */
+
+.sb-nav-fixed .sb-topnav{
+  display: none;
+}
+
+/* .navbar-brand{
+  display: none;
+} */
+
+/* header,
+footer,
+nav,
+aside {
+  position: absolute;
+} */

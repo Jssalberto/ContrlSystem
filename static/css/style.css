@@ -3046,8 +3046,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color:#00ACC1;
+  border-color: #00ACC1;
 }
 .btn-primary:hover {
   color: #fff;
@@ -11698,6 +11698,59 @@ body {
   width: 20px !important;
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
+}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bars__menu
+{
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 60%;
+  left: 13.5%;
+  transform: translate(-50%, -50%) scale(5);
+  cursor:pointer;
+  border-radius: 150px;
+  margin-left: -12px; /*posicion del button a isquierda*/
+}
+/*BUTOON*/
+.bars__menu span
+{
+  display: block;
+  width: 80%;
+  height: 1px;
+  background:#00ACC1;
+  margin-top:1px;
+  transform-origin: 0px 100%;
+  transition: all 100ms;
+  border-radius: 150px;
+}
+/*ANIMACIONES*/
+.activeline1__bars-menu /*bars__menu:active .line1__bars-menu*/
+{
+  transform: rotate(45deg) translate(-2px, 1px);
+}
+.activeline2__bars-menu /*bars__menu:active .line2__bars-menu*/
+{
+  opacity: 0;
+  margin-left: -30px;
+}
+.activeline3__bars-menu /*bars__menu:active .line3__bars-menu*/
+{
+  transform: rotate(-45deg) translate(-14%, -2%);
+}
+.svg-inline--fa {
+  height: 2em;
+}
+.iconlogin
+{
+  color: white;
 }
 
 

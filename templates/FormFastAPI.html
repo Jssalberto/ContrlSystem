@@ -1,0 +1,52 @@
+{% extends 'estructura.html'%}
+{% block content %}
+
+<br>
+<br>
+<section class="container">
+    <div class="container center">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-2">Soy FormFastAPI</h3>
+                    </div>
+                    <ol class="breadcrumb mb-4">
+                        <a href="{{url_for('FastAPI')}}"> <button type="button"
+                            class="btn btn-outline-secondary border-2 border_tem"><b><i>Anterior</i></b></button>
+                        </a>
+                    </ol>
+                    <div class="card-body">
+                        <form class="row g-3" method="POST" action="{{url_for('save_data_fastAPI')}}">
+
+                            <div class="col-md-6">
+                                <label for="inputNumber" class="form-label">Cuenta</label>
+                                <input type="number" class="form-control" id="cuenta" name="cuenta"
+                                    placeholder="Cuenta">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Date" class="form-label">Fecha</label>
+                                <input type="Date" class="form-control" id="fecha" name="fecha">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPerson" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="edad" name="edad">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputState" class="form-label">Ciudad</label>
+                                <input type="state" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad">
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-secondary border-2 border_tem"><b><i>Agregar Registro</i></b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</section>
+<br>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'estructura.html'%}
+{% block content %}
+<!-- HEREDA DE UNA BASE-->
+<!-- EL CONTENEDOR -->
+<br>
+<br>
+<section class="container">
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-2">
+                <h1 class="mt-4"><b class="text-muted"><i>Lista de Ventas FastAPI</i></b></h1>
+                <br>
+                <ol class="breadcrumb mb-4">
+                    <a href="{{url_for('FormFastAPI')}}"> <button type="button"
+                            class="btn btn-outline-secondary border-2 border_tem"><b><i>Registrar</i></b></button></a>
+                </ol>
+                <div class="card mb-4 border border-3 border_card">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Tabla de Registros
+                    </div>
+                    <div class="card-body">
+                        <!-- TABLA DE FORMULARIO DE LA BASE DE DATOS DE FIREBASE-->
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr class="table-danger">
+                                    <th><b><i>Cuenta</i></b></th>
+                                    <th><b><i>Fecha</i></b></th>
+                                    <th><b><i>Edad</i></b></th>
+                                    <th><b><i>Ciudad</i></b></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th><b><i>Cuenta</i></b></th>
+                                    <th><b><i>Fecha</i></b></th>
+                                    <th><b><i>Edad</i></b></th>
+                                    <th><b><i>Ciudad</i></b></th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <!-- EXTRAER DATOS DE FIREBASEE-->
+                                {% for data in Lista_valores %}
+                                <tr>
+                                    <td>{{data.cuenta}}</td>
+                                    <td>{{data.fecha}}</td>
+                                    <td>{{data.edad}}</td>
+                                    <td>{{data.ciudad}}</td>
+                                </tr>
+                                {% endfor%} 
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</section>
+
+{% endblock %}
