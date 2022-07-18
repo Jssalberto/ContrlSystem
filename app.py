@@ -174,13 +174,18 @@ def save_data_venta():
     cuotamensual = request.form.get('cuotamensual')
     nombrecliente = request.form.get('nombrecliente')
     domicilio  = request.form.get('domicilio')
+    
+    tiempocontrato = request.form.get('tiempocontrato')
+    tiempoiniciocontrato = request.form.get('tiempoiniciocontrato')
+    tiempoterminocontrato = request.form.get('tiempoterminocontrato')    
+    
     fecha = request.form.get('fecha')
     persona = request.form.get('persona')
     ciudad = request.form.get('ciudad')
     precio = request.form.get('precio')
     equipos = request.form.get('equipos')
     
-    nueva_venta = Venta(cuenta, cuotamensual, nombrecliente, domicilio, fecha, persona, ciudad, precio, equipos)
+    nueva_venta = Venta(cuenta, cuotamensual, nombrecliente, domicilio, tiempocontrato, tiempoiniciocontrato, tiempoterminocontrato, fecha, persona, ciudad, precio, equipos)
     enviar_respuesta_venta = json.dumps(nueva_venta.__dict__)
     crear_formato_venta = json.loads(enviar_respuesta_venta)
     db.child("plan_Venta").push(crear_formato_venta)

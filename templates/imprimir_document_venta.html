@@ -7,9 +7,6 @@
         <br>
         <br>
         <div class="botones">
-            <input type="button" value="Finalizar" onClick=location.href="{{url_for('tablefinalizadosventa')}}" class="btn1">
-            <input type="button" value="Pendiente" onClick=location.href="{{url_for('tablependientesventa')}}" class="btn2">
-            <input type="button" value="Cancelar" onClick=location.href="{{url_for('tablecancelados')}}" class="btn3">
             <input type='button' value='Imprimir' onClick='window.print()' class='noimp'>
             <input type="button" value="Anterior" onClick=location.href="{{url_for('tableregistroventa')}}"
                 class="btn4">
@@ -18,16 +15,16 @@
             <img class="img-1" src="/static/assets/img/head.jpeg">
             <div id="visor" class="renta">
                 <div class="plan">
-                    <pre><b>Cuenta:{{lista_imprimir_venta.cuenta}}</b><span style="font-size: 13px;"></span></pre>
+                    <pre><b>Cuenta:</b><span style="font-size: 13px;">{{lista_imprimir_venta.cuenta}}</span></pre>
                     <pre><b>Tipo de plan:</b> <span style="font-size: 13px;">Venta</span></pre>
-                    <pre><b>Cuota Mensual:{{lista_imprimir_venta.cuotamensual}}</b> <span style="font-size: 13px;"></span></pre>
+                    <pre><b>Cuota Mensual:</b><span style="font-size: 13px;">${{lista_imprimir_venta.cuotamensual}}</span></pre>
                 </div>
                 <div class="pagina1">
 
                     <p>
                         CONTRATO DE PRESTACIÓN DEL SERVICIO DE MONITOREO QUE CELEBRAN, POR UNA PARTE, COMO USUARIO DEL
                         SERVICIO A:
-                        <b>{{lista_imprimir_venta.nombrecliente}}</b>, Y O: MEMORY CELL BODEGA
+                        <b>{{lista_imprimir_venta.nombrecliente}}</b>
                         EN LO SUCESIVO SE LE DENOMINARA COMO EL “CLIENTE”. Y POR LA OTRA PARTE COMO PRESTADOR DEL
                         SERVICIO
                         DENOMINADO AGS TECNOLOGIA Y SEGURIDAD PRIVADA S.A.S DE C.V., REPRESENTADA EN ESTE ACTO POR EL C.
@@ -40,9 +37,9 @@
 
                     <h3 class="dec-center"><b>DECLARACIONES</b></h3>
                     <p><b>I.- DECLARA “LA EMPRESA”</b></p>
-                    <p><b>A).-</b>SER UNA PERSONA:<b>{{lista_imprimir_venta.persona}} </b> CONSTITUIDA CONFORME A LAS LEYES MEXICANAS, MEDIANTE FOLIO DE
-                        CONSTITUCIÓN NÚMERO SAS-1.2-202003-292932, DE FECHA: <b> {{lista_imprimir_venta.fecha}}</b> , CON DOMICILIO UBICADO
-                        EN: <b> {{lista_imprimir_venta.domicilio}}</b>, DE LA CIUDAD DE: <b> {{lista_imprimir_venta.ciudad}}</b> , C.P. 29240; TENIENDO COMO OBJETO SOCIAL ENTRE OTROS EL SERVICIO DE PROTECCIÓN Y
+                    <p><b>A).-</b>SER UNA PERSONA MORAL CONSTITUIDA CONFORME A LAS LEYES MEXICANAS, MEDIANTE FOLIO DE
+                        CONSTITUCIÓN NÚMERO SAS-1.2-202003-292932, DE FECHA DE FECHA 23 DE MARZO DE 2020, CON DOMICILIO UBICADO
+                        EN LA CALLE 5 DE FEBRERO NÚMERO 19, BARRIO LA MERCED DE LA CIUDAD DE SAN CRISTÓBAL  DE LAS CASAS, CHIAPAS, C.P. 29240; TENIENDO COMO OBJETO SOCIAL ENTRE OTROS EL SERVICIO DE PROTECCIÓN Y
                         CUSTODIA MEDIANTE EL MONITOREO DE SISTEMAS DE SEGURIDAD, REPRESENTADA EN ESTE ACTO POR EL C.
                         ALBERTO GORDILLO GORDILLO, EN SU CARÁCTER DE ADMINSITRADOR CONFORME A LO DISPUESTO POR LOS
                         PÁRRAFOS PRIMERO, SEGUNDO Y TERCERO DEL ARTICULO 267 DE LA LEY GENERAL DE SOCIEDADES
@@ -58,6 +55,10 @@
                         OBTENIDO LOS PERMISOS, LICENCIAS Y DOCUMENTACIÓN QUE SEA NECESARIA PARA REALIZAR LA ACTIVIDAD
                         QUE SE CONTRATA.</p>
 
+
+<!-- 
+                        <b> {{lista_imprimir_venta.domicilio}}</b>, DE LA CIUDAD DE: <b> {{lista_imprimir_venta.ciudad}}</b> 
+                        <b> {{lista_imprimir_venta.fecha}}</b> -->
                     <p><b>II.- DECLARA “EL CLIENTE”</b></p>
                     <p><b>A.-</b>QUE ES UNA PERSONA FISICA DE NACIONALIDAD MEXICANA, CON PLENO USO Y GOCE DE SUS
                         FACULTADES Y DERECHOS, CON LA CAPACIDAD JURIDICA NECESARIA PARA CELEBRAR EL PRESENTE CONTRATO.
@@ -75,7 +76,7 @@
                     <p><b>PRIMERA.- “LAS PARTES”</b> CONTRATANTES RECONOCEN SU CAPACIDAD Y PERSONALIDAD CON LA QUE
                         COMPARECEN A LA CELEBRACIÓN DEL PRESENTE INSTRUMENTO.</p>
                     <p><b>SEGUNDA. -</b>
-                        EL PRESENTE CONTRATO TENDRÁ UNA VIGENCIA DE <span><b>{{lista_imprimir_venta.tiempocontrato}}</b></span> AÑOS A PARTIR DEL DIA <span><b>{{lista_imprimir_venta.tiempoiniciocontrato}}</b></span> AL <span><b>{{lista_imprimir_venta.tiempoterminocontrato}}</b></span>.
+                        EL PRESENTE CONTRATO TENDRÁ UNA VIGENCIA DE <b>{{lista_imprimir_venta.tiempocontrato}}</b> AÑOS A PARTIR DEL DIA <b>{{lista_imprimir_venta.tiempoiniciocontrato}}</b> AL <b>{{lista_imprimir_venta.tiempoterminocontrato}}</b>.
                         Y SERÁ OBLIGATORIO PARA AMBAS PARTES EN EL PERIODO CORRESPONDIENTE. SIN EMBARGO, <b>“LA
                             EMPRESA”</b> PODRÁ DARLO POR RESCINDIDO SIN QUE PARA ELLA EXISTA RESPONSABILIDAD ALGUNA, EN
                         LOS CASOS DE INCUMPLIMIENTO POR PARTE DE <b>“EL CLIENTE”</b>.
@@ -107,7 +108,7 @@
                         EMPRESA” PARA SUPERVISAR EL DOMICILIO DE “EL CLIENTE”, SIEMPRE Y CUANDO EL DOMICILIO DEL CLIENTE
                         SEA EN LA MISMA LOCALIDAD QUE EL DE LA EMPRESA.</p>
                     <p><b>SEXTA. -</b>“EL CLIENTE” SE COMPROMETE A PAGAR POR EL SERVICIO DE MONITOREO DEL EQUIPO DE
-                        SEGURIDAD LA CANTIDAD DE:  <b><ins><i> {{ lista_imprimir_venta.precio}}</i></ins></b> MENSUALES. LOS CUALES DEBERÁN SER CUBIERTOS EN LOS PRIMEROS
+                        SEGURIDAD LA CANTIDAD DE:  <b><ins><i> {{ lista_imprimir_venta.precio}} PESOS 00/M.N</i></ins></b> MENSUALES. LOS CUALES DEBERÁN SER CUBIERTOS EN LOS PRIMEROS
                         CINCO DÍAS NATURALES DE CADA MES, TENIENDO FECHA LIMITE DE PAGO PARA EVITAR EL CORTE DEL
                         SERVICIO EL DIA: 08 DE CADA MES. “EL CLIENTE”DEBERÁ CUBRIR EL PAGO DE MONITOREO EN SU TOTALIDAD
                         AÚN EN EL CASO DE QUE EL SERVICIO DE MONITOREO DEL EQUIPO DE SEGURIDAD (ALARMA) SE INICIARA EN
@@ -195,16 +196,16 @@
                     <p><b></b>LEIDO QUE FUE EL PRESENTE CONTRATO, “LAS PARTES” LO FIRMAN DE COMUN ACUERDO AL MARGEN Y AL
                         CALCE PARA CONSTANCIA, CONOCIENDO EL ALCANCE Y LA FUERZA LEGAL DEL CONTENIDO DE TODAS Y CADA UNA
                         DE SUS CLÁUSULAS EN DOS EJEMPLARES, QUEDANDO UN TANTO PARA CADA UNO DE ELLOS,
-                        EN LA CIUDAD DE: <span><b>{{lista_imprimir_venta.ciudad}}</b></span> A LOS DIAS<span> <b>{{lista_imprimir_venta.fecha}}</b></span>
+                        EN LA CIUDAD DE <b>{{lista_imprimir_venta.ciudad}}</b> EN LA FECHA <b>{{lista_imprimir_venta.fecha}}</b>
                     </p>
                     <br>
 
 
-                    <pre>                <b>"LA EMPRESA"</b>                                                <b>"EL CLIENTE"</b></pre>
-                    <pre>          _____________________________                           _____________________________</pre>
-                    <pre>        <b>C. ALBERTO GORDILLO GORDILLO.</b>                                  <b>   {{lista_imprimir_venta.nombrecliente}} </b></pre>
-                    <pre>                 AGS TECNOLOGIA</pre>
-                    <pre>               RFC: GOGA720130NC2</pre>
+                    <pre>                  <b>"LA EMPRESA"</b>                                            <b>"EL CLIENTE"</b></pre>
+                    <pre>            _____________________________                       _____________________________</pre>
+                    <pre>          <b>C. ALBERTO GORDILLO GORDILLO.</b>                              <b>{{lista_imprimir_venta.nombrecliente}} </b></pre>
+                    <pre>                   AGS TECNOLOGIA</pre>
+                    <pre>                 RFC: GOGA720130NC2</pre>
                     <br>
                     <img class="foot-3" src="/static/assets/img/footer.jpeg">
                 </div>
