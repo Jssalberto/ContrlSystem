@@ -27,20 +27,20 @@
                     
                                 <div class="card-header"><h2 class="text-center font-weight-light my-4"><b class="text-muted"><i>Recibo</i></b></h2></div>
                                 <div class="card-body">
-                                    <form method="POST" action="{{url_for('save_data_venta')}}">
+                                    <form method="POST" action="{{url_for('save_data_recibo')}}">
                                         <div class="row mb-3">
 
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="cuenta" name="cuenta" type="number" placeholder="Enter your first name" />
-                                                    <label for="inputFirstName"><i>N° Cuenta</i></label>
+                                                    <input class="form-control  border_tem" id="recibo" name="recibo" type="number" placeholder="Enter your first name" />
+                                                    <label for="inputFirstName"><i>N° Recibo</i></label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control  border_tem" id="cuotamensual" name="cuotamensual" type="number" placeholder="Enter your last name" />
-                                                    <label for="inputLastName"><i>Cuota Mensual</i></label>
+                                                    <input class="form-control  border_tem" id="fechaexpedicion" name="fechaexpedicion" type="date" placeholder="Enter your last name" />
+                                                    <label for="inputLastName"><i>Fecha de expedicion</i></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -48,15 +48,15 @@
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="nombrecliente" name="nombrecliente" type="text" placeholder="Enter your first name" />
-                                                    <label for="inputFirstName"><i>Nombre del Cliente</i></label>
+                                                    <input class="form-control  border_tem" id="telefonocliente" name="telefonocliente" type="number" placeholder="Enter your first name" />
+                                                    <label for="inputFirstName"><i>Telefono del cliente</i></label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control  border_tem" id="domicilio" name="domicilio" type="text" placeholder="Enter your last name" />
-                                                    <label for="inputLastName"><i>Domicilio</i></label>
+                                                    <input class="form-control  border_tem" id="monto" name="monto" type="number" placeholder="Enter your last name" />
+                                                    <label for="inputLastName"><i>Monto Entregado</i></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,30 +64,14 @@
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="fecha" name="fecha" type="date" placeholder="Create a password" />
-                                                    <label for="inputPassword"><i>Fecha</i></label>
+                                                    <input class="form-control  border_tem" id="cantidadletra" name="cantidadletra" type="text" placeholder="Create a password" />
+                                                    <label for="inputPassword"><i>Cantidad en letra</i></label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="persona" name="persona" type="text" placeholder="Confirm password" />
-                                                    <label for="inputPasswordConfirm"><i>Persona<i></label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="ciudad" name="ciudad" type="text" placeholder="Create a password" />
-                                                    <label for="inputPassword"><i>Ciudad</i></label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="precio" name="precio" type="number" placeholder="Create a password" />
-                                                    <label for="inputPassword"><i>Precio</i></label>
+                                                    <input class="form-control  border_tem" id="consepto" name="consepto" type="text" placeholder="Confirm password" />
+                                                    <label for="inputPasswordConfirm"><i>Concepto<i></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,8 +79,15 @@
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control  border_tem" id="equipos" name="equipos" type="text" placeholder="Create a password" />
-                                                    <label for="inputPassword"><i>Equipos</i></label>
+                                                    <input class="form-control  border_tem" id="quienentrega" name="quienentrega" type="text" placeholder="Create a password" />
+                                                    <label for="inputPassword"><i>Quien entrega</i></label>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control  border_tem" id="quienrecibe" name="quienrecibe" type="text" placeholder="Create a password" />
+                                                    <label for="inputPassword"><i>Quien recibe</i></label>
                                                 </div>
                                             </div>
                                         </div>

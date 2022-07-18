@@ -31,8 +31,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <!-- <title>Visor de Documentos</title> -->
     <!-- CSS  -->
-    <link href="static/css/doc.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="static/css/print.css" type="text/css" rel="stylesheet" media="print" />
+    <!-- <link href="static/css/doc.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="static/css/print.css" type="text/css" rel="stylesheet" media="print" /> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/doc.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/print.css') }}" media="print">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
 
     <!-- CSS-->
@@ -41,10 +43,9 @@
   </head>
 
   <body class="sb-nav-fixed bg-light">
-    
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
       <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3" href="#" style="color: #00ACC1;">SEGURIDAD ACTIVA</a>
+      <a class="navbar-brand ps-3" href="{{url_for('inicio')}}" style="color: #00ACC1;">SEGURIDAD ACTIVA</a>
       <!-- Sidebar Toggle-->
       <!-- <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="{{url_for('inicio')}}"><i class="fas fa-bars"></i></button>    -->
       <div class="bars__menu" id="sidebarToggle">
@@ -104,22 +105,6 @@
                 </nav>
               </div>
 
-              <!-- Contrato Generales -->
-              <div class="sb-sidenav-menu-heading">Historial</div>
-
-              <a class="nav-link" href="{{url_for('contratoGeneral')}}">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-tachometer-alt"></i>
-                </div>
-                Contrato General
-              </a>
-              <a class="nav-link" href="{{url_for('FastAPI')}}">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-tachometer-alt"></i>
-                </div>
-                Prueba
-              </a>
-
               <!-- Contratos Pendientes -->
 
               <div class="sb-sidenav-menu-heading">En proceso</div>
@@ -149,11 +134,11 @@
 
               <div class="sb-sidenav-menu-heading">Facturacion</div>
               <!-- Recibos -->
-              <a class="nav-link" href="{{url_for('formrecibo')}}">
+              <a class="nav-link" href="{{url_for('tableregistrorecibo')}}">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>
-                Recibo
+                Tabla de Recibos
               </a>
             
             </div>            

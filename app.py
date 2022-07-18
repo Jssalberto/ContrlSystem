@@ -8,6 +8,7 @@ from flask import redirect
 from Models.renta import Renta
 from Models.venta import Venta
 from Models.fastAPI import FastAPI_app
+from Models.recibo import Recibo
 
 import pyrebase
 #CADENA DE CONEXION
@@ -27,7 +28,7 @@ app = Flask(__name__)
 
 # ______________ Rutas Principales ______________
 
-@app.route('/login', methods=['GET'])
+@app.route('/', methods=['GET'])
 def login():
     return render_template('login.html')
 
@@ -76,8 +77,8 @@ def save_data_fastAPI():
 #     return render_template('tableregistrorenta.html')
 
     
-#!===========================================RECIBO========================================================
-#!===========================================RECIBO========================================================
+#&===========================================RECIBO========================================================
+#&===========================================RECIBO========================================================
 
 @app.route('/documentrecibo', methods=['GET'])
 def documentrecibo():
@@ -86,6 +87,46 @@ def documentrecibo():
 @app.route('/formrecibo', methods=['GET'])
 def formrecibo():
     return render_template('formrecibo.html')
+
+@app.route('/tableregistrorecibo', methods=["GET"])
+def tableregistrorecibo():
+    lista_recibo = db.child("Recibo").get().val()
+    try:
+        lista_indice_recibo = lista_recibo.keys()
+        lista_indice_final_recibo = list(lista_indice_recibo)
+        return render_template('tableregistrorecibo.html', elemento_registros_recibo=lista_recibo.values(), lista_indice_final_recibo=lista_indice_final_recibo)
+    except:
+        return render_template('tableregistrorecibo')
+
+@app.route('/save_data_recibo', methods=["POST"])
+def save_data_recibo():
+    recibo = request.form.get('recibo')
+    fechaexpedicion = request.form.get('fechaexpedicion')
+    telefonocliente = request.form.get('telefonocliente')
+    monto = request.form.get('monto')
+    cantidadletra = request.form.get('cantidadletra')
+    consepto = request.form.get('consepto')
+    quienentrega = request.form.get('quienentrega')
+    quienrecibe = request.form.get('quienrecibe')
+    nuevo_recibo = Recibo(recibo, fechaexpedicion, telefonocliente, monto, cantidadletra, consepto, quienentrega, quienrecibe)
+    enviar_respuesta_recibo = json.dumps(nuevo_recibo.__dict__)
+    crear_formato_recibo = json.loads(enviar_respuesta_recibo)
+    db.child("Recibo").push(crear_formato_recibo)
+    return redirect(url_for('tableregistrorecibo'))
+
+
+@app.route('/eliminar_registro_recibo', methods=["GET"])
+def eliminar_registro_recibo():
+    id = request.args.get("id")#AGREGAR SOLO ESTO
+    print(id)
+    db.child("Recibo").child(str(id)).remove()
+    return redirect(url_for('tableregistrorecibo'))
+
+@app.route('/imprimir_document_recibo/<id>', methods=["GET"])
+def imprimir_document_recibo(id):
+    lista_imprimir_recibo = db.child("Recibo").child(str(id)).get().val()
+    return render_template('imprimir_document_recibo.html', lista_imprimir_recibo=lista_imprimir_recibo, id_recibo=id)
+
 
 
 #*============================================VENTA==============================================================
@@ -135,6 +176,28 @@ def eliminar_registro_venta():
     db.child("plan_Venta").child(str(id)).remove()
     return redirect(url_for('tableregistroventa'))
 
+@app.route('/imprimir_document_venta/<id>', methods=['GET'])
+def imprimir_document_venta(id):
+    lista_imprimir_venta = db.child("plan_Venta").child(str(id)).get().val()
+    return render_template('imprimir_document_venta.html', lista_imprimir_venta=lista_imprimir_venta, id_venta=id)
+
+@app.route('/imprimir_registros_venta', methods=["POST"])
+def imprimir_registros_venta():
+    idventa=request.form.get('id')
+    cuenta=request.form.get('cuenta')
+    cuotamensual=request.form.get('cuotamensual')
+    nombrecliente=request.form.get('nombrecliente')
+    domicilio=request.form.get('domicilio')
+    fecha=request.form.get('fecha')
+    persona=request.form.get('persona')
+    ciudad=request.form.get('ciudad')
+    precio=request.form.get('precio')
+    equipos=request.form.get('equipos')
+    nuevo_document_impreso_venta = Venta(cuenta, cuotamensual, nombrecliente, domicilio, fecha, persona, ciudad, precio, equipos)
+    nuevo_objeto_impreso_venta = json.dumps(nuevo_document_impreso_venta.__dict__)
+    datos_impreso_venta = json.loads(nuevo_objeto_impreso_venta)
+    db.child("plan_Venta").child(str(idventa)).update(datos_impreso_venta)
+    return redirect(url_for(documentventa))
 #*==========================================RENTA===================================================================
 #*==========================================RENTA===================================================================
 @app.route('/formplanrenta', methods=['GET'])
@@ -185,13 +248,16 @@ def save_data_renta():
     cuotamensual = request.form.get('cuotamensual')
     nombrecliente = request.form.get('nombrecliente')
     domicilio  = request.form.get('domicilio')
+    tiempocontrato = request.form.get('tiempocontrato')
+    tiempoiniciocontrato = request.form.get('tiempoiniciocontrato')
+    tiempoterminocontrato = request.form.get('tiempoterminocontrato')
     fecha = request.form.get('fecha')
     persona = request.form.get('persona')
     ciudad = request.form.get('ciudad')
     precio = request.form.get('precio')
     equipos = request.form.get('equipos')
     
-    nueva_renta = Renta(cuenta, cuotamensual, nombrecliente, domicilio, fecha, persona, ciudad, precio, equipos)
+    nueva_renta = Renta(cuenta, cuotamensual, nombrecliente, domicilio, tiempocontrato, tiempoiniciocontrato, tiempoterminocontrato, fecha, persona, ciudad, precio, equipos)
     enviar_respuesta_renta = json.dumps(nueva_renta.__dict__)
     crear_formato_renta = json.loads(enviar_respuesta_renta)
     db.child("plan_Renta").push(crear_formato_renta)

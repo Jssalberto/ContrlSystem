@@ -38,7 +38,7 @@
                                     <th><i>Precio</i></th>
                                     <th><i>Equipos</i></th>
                                     <th><i>Document</i></th>
-                                    <th><i>Opciones</i></th>
+                                    <th><i>Eliminar</i></th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -55,7 +55,7 @@
                                     <th><i>Precio</i></th>
                                     <th><i>Equipos</i></th>
                                     <th><i>Document</i></th>
-                                    <th><i>Opciones</i></th>
+                                    <th><i>Eliminar</i></th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -67,15 +67,15 @@
                                     <td>{{renta.cuotamensual}}</td>
                                     <td>{{renta.nombrecliente}}</td>
                                     <td>{{renta.domicilio}}</td>
-                                    <th>2 años</th>
-                                    <th>17-07-22</th>
-                                    <th>18-08-22</th>
+                                    <td>{{renta.tiempocontrato}}</td>
+                                    <td>{{renta.tiempoiniciocontrato}}</td>
+                                    <td>{{renta.tiempoterminocontrato}}</td>
                                     <td>{{renta.fecha}}</td>
                                     <td>{{renta.ciudad}}</td>
                                     <td>{{renta.precio}}</td>
                                     <td>{{renta.equipos}}</td>
                                     <td>
-                                        <a class="imprimir btn btn-outline-info border_tem" data-id="{{ lista_indice_final_renta[contador_renta.value] }}" href="javascript:void(0)">Imprimir</a>
+                                        <a class="imprimir_renta btn btn-outline-info border_tem" data-id="{{ lista_indice_final_renta[contador_renta.value] }}" href="javascript:void(0)">Imprimir</a>
                                     </td>
                                     <td>
                                         <a class="dltBtnx btn btn-outline-danger border_tem" data-id="{{lista_indice_final_renta[contador_renta.value]}}" href="javascript:void(0)">Eliminar</a>

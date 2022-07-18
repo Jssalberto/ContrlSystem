@@ -8,10 +8,10 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-2">
-                <h3 class="mt-4"><b class="text-muted"><i>Lista de Ventas</i></b></h3>
+                <h3 class="mt-4"><b class="text-muted"><i>Lista de Recibos</i></b></h3>
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group me-2" role="group" aria-label="First group">
-                      <a href="{{url_for('formplanventa')}}"> <button type="button"
+                      <a href="{{url_for('formrecibo')}}"> <button type="button"
                             class="btn btn-outline-secondary border-2 border_tem"><b><i>Registrar</i></b></button></a>
                     </div>
                 </div>
@@ -19,21 +19,20 @@
                 <div class="card mb-4 border border-3 border_card">
                     <div class="card-header text-muted">
                         <i class="fas fa-table me-1"></i>
-                        Tabla de Registros
+                        Tabla de Registros de Recibo
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                                 <tr class="table-info">
-                                    <th><i>Cuenta</i></th>
-                                    <th><i>Cuota Mensual</i></th>
-                                    <th><i>Nombre Cliente</i></th>
-                                    <th><i>Domicilio</i></th>
-                                    <th><i>Fecha</i></th>
-                                    <th><i>Persona</i></th>
-                                    <th><i>Ciudad</i></th>
-                                    <th><i>Precio</i></th>
-                                    <th><i>Equipos</i></th>
+                                    <th><i>N° Recibo</i></th>
+                                    <th><i>Fecha de expedicion</i></th>
+                                    <th><i>Telefono del cliente</i></th>
+                                    <th><i>Monto Entregado</i></th>
+                                    <th><i>Cantidad en letra</i></th>
+                                    <th><i>Concepto</i></th>
+                                    <th><i>Quien entrega</i></th>
+                                    <th><i>Quien recibe</i></th>
                                     <th><i>Document</i></th>
                                     <th><i>Opciones</i></th>
                                     
@@ -41,40 +40,38 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th><i>Cuenta</i></th>
-                                    <th><i>Cuota Mensual</i></th>
-                                    <th><i>Nombre Cliente</i></th>
-                                    <th><i>Domicilio</i></th>
-                                    <th><i>Fecha</i></th>
-                                    <th><i>Persona</i></th>
-                                    <th><i>Ciudad</i></th>
-                                    <th><i>Precio</i></th>
-                                    <th><i>Equipos</i></th>
+                                    <th><i>N° Recibo</i></th>
+                                    <th><i>Fecha de expedicion</i></th>
+                                    <th><i>Telefono del cliente</i></th>
+                                    <th><i>Monto Entregado</i></th>
+                                    <th><i>Cantidad en letra</i></th>
+                                    <th><i>Concepto</i></th>
+                                    <th><i>Quien entrega</i></th>
+                                    <th><i>Quien recibe</i></th>
                                     <th><i>Document</i></th
                                     <th><i>Opciones</i></th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                {% set contador_venta=namespace( value=0) %}
-                                {% for data in elemento_registros_venta %}
+                                {% set contador_recibo=namespace( value=0) %}
+                                {% for recibo in elemento_registros_recibo %}
                                     <tr>
-                                        <td>{{data.cuenta}}</td>
-                                        <td>{{data.cuotamensual}}</td>
-                                        <td>{{data.nombrecliente}}</td>
-                                        <td>{{data.domicilio}}</td>
-                                        <td>{{data.fecha}}</td>
-                                        <td>{{data.persona}}</td>
-                                        <td>{{data.ciudad}}</td>
-                                        <td>{{data.precio}}</td>
-                                        <td>{{data.equipos}}</td>
+                                        <td>{{recibo.recibo}}</td>
+                                        <td>{{recibo.fechaexpedicion}}</td>
+                                        <td>{{recibo.telefonocliente}}</td>
+                                        <td>{{recibo.monto}}</td>
+                                        <td>{{recibo.cantidadletra}}</td>
+                                        <td>{{recibo.consepto}}</td>
+                                        <td>{{recibo.quienentrega}}</td>
+                                        <td>{{recibo.quienrecibe}}</td>
                                         <td>
-                                            <a class="imprimir_venta btn btn-outline-info border_tem" data-id="{{ lista_indice_final_venta[contador_venta.value] }}" href="javascript:void(0)">Imprimir</a>
+                                            <a class="imprimir_recibo btn btn-outline-info border_tem" data-id="{{ lista_indice_final_recibo[contador_recibo.value] }}" href="javascript:void(0)">Imprimir</a>
                                         </td>
                                         <td>
-                                            <a class="dltBtnv btn btn-outline-danger border_tem" data-id="{{ lista_indice_final_venta[contador_venta.value] }}" href="javascript:void(0)">Eliminar</a>
+                                            <a class="dltBtnh btn btn-outline-danger border_tem" data-id="{{ lista_indice_final_recibo[contador_recibo.value] }}" href="javascript:void(0)">Eliminar</a>
                                         </td>
                                     </tr>
-                                    {% set contador_venta.value=contador_venta.value + 1 %}
+                                    {% set contador_recibo.value=contador_recibo.value + 1 %}
                                 {% endfor%} 
                                
                             </tbody>
