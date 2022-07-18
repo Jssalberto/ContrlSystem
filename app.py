@@ -88,8 +88,8 @@ def formrecibo():
     return render_template('formrecibo.html')
 
 
-#!============================================VENTA==============================================================
-#!============================================VENTA==============================================================
+#*============================================VENTA==============================================================
+#*============================================VENTA==============================================================
 @app.route('/documentventa', methods=['GET'])
 def documentventa():
     return render_template('documentventa.html')
@@ -131,6 +131,7 @@ def save_data_venta():
 @app.route('/eliminar_registro_venta', methods=["GET"])
 def eliminar_registro_venta():
     id = request.args.get("id")#AGREGAR SOLO ESTO
+    print(id)
     db.child("plan_Venta").child(str(id)).remove()
     return redirect(url_for('tableregistroventa'))
 
@@ -154,12 +155,29 @@ def tableregistrorenta():
     except:
         return render_template('tableregistrorenta.html')
 
-@app.route('/imprimir_document_renta', methods=["GET"])
-def imprimir_document_renta():
-    id  = request.args.get("id")
-    db.child("plan_Renta").child(str(id)).get()
-    return render_template('documentrenta.html')
 
+@app.route('/imprimir_document_renta/<id>', methods=["GET"])
+def imprimir_document_renta(id):
+    lista_imprimir_renta = db.child("plan_Renta").child(str(id)).get().val()
+    return render_template('imprimir_document_renta.html', lista_imprimir_renta=lista_imprimir_renta, id_renta=id)
+
+@app.route('/imprimir_registros_renta', methods=["POST"])
+def imprimir_registros_renta():
+    idrenta=request.form.get('id')
+    cuenta=request.form.get('cuenta')
+    cuotamensual=request.form.get('cuotamensual')
+    nombrecliente=reques.form.get('nombrecliente')
+    domicilio=request.form.get('domicilio')
+    fecha=request.form.get('fecha')
+    persona=request.form.get('persona')
+    ciudad=request.form.get('ciudad')
+    precio=request.form.get('precio')
+    equipos=request.form.get('equipos')
+    nuevo_document_impreso = Renta(cuenta, cuotamensual, nombrecliente, domicilio, fecha, persona, ciudad, precio, equipos)
+    nuevo_objeto_impreso = json.dumps(nuevo_document_impreso.__dict__)
+    datos_impreso_renta = json.loads(nuevo_objeto_impreso)
+    db.child("plan_Renta").child(str(idrenta)).update(datos_impreso_renta)
+    return redirect(url_for('documentrenta'))
     
 @app.route('/save_data_renta', methods=['POST'])
 def save_data_renta():

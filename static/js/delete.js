@@ -34,6 +34,40 @@ $(document).ready(function () {
                 }
             });
     });
+
+    //=====IMPRIMIR REGISTROS
+    //--------------boton actualizar del archivo JS-------------
+    // **************  IMPRIMIR DOCUMENT RENTA  **************
+    //boton alerta
+    //--------------boton actualizar del archivo JS-------------
+    //boton alerta
+    $('.imprimir').click(function () {
+        var id = $(this).attr('data-id');
+
+        bootbox.confirm({
+            message: "¿Desea Imprimir el Registro?",
+            // title: "! ==== WARNING==== !",
+            buttons: {
+                confirm: {
+                    label: 'Si',
+                    className: "btn-outline-danger border_tem"
+                },
+                cancel: {
+                    label: "No",
+                    className: "btn-outline-success border_tem",
+                    callback: function () {
+                        $('.bootbox').modal('hide');
+                    }
+                }
+            },
+            callback: function (result) {
+                window.location.href = "/imprimir_document_renta/" + id;
+                console.log('This was logged in the callback: ' + result);
+                console.log("id es:" + id)
+            }
+        });
+    });
+
 });
 
 function imprimir(){
