@@ -106,26 +106,63 @@
               </div>
 
               <!-- Contratos Pendientes -->
-
               <div class="sb-sidenav-menu-heading">En proceso</div>
-
-              <a class="nav-link" href="{{url_for('pendientes')}}">
+              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsFive" aria-expanded="false" aria-controls="collapseLayoutsFive">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>
                 Contrato Pendiente
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
               </a>
+              <div class="collapse" id="collapseLayoutsFive" aria-labelledby="headingFive" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="{{url_for('tablependientesventa')}}">Ventas</a>
+                </nav>
+              </div>
+              <div class="collapse" id="collapseLayoutsFive" aria-labelledby="headingFive" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="{{url_for('tablependientesrenta')}}">Rentas</a>
+                </nav>
+              </div>
 
               <!-- Contratos Finalizados -->
-              <a class="nav-link" href="{{url_for('finalizado')}}">
+              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsSix" aria-expanded="false" aria-controls="collapseLayoutsSix">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>
                 Contrato Finalizado
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
               </a>
+              <div class="collapse" id="collapseLayoutsSix" aria-labelledby="headingSix" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="{{url_for('tablefinalizadosventa')}}">Ventas</a>
+                </nav>
+              </div>
+              <div class="collapse" id="collapseLayoutsSix" aria-labelledby="headingSix" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="{{url_for('tablefinalizadosrenta')}}">Rentas</a>
+                </nav>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
               <!-- Contratos Cancelados -->
-              <a class="nav-link" href="{{url_for('cancelados')}}">
+              <a class="nav-link" href="{{url_for('tablecancelados')}}">
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
                 </div>

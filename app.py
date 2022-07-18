@@ -239,6 +239,8 @@ def tableregistrorenta():
 @app.route('/imprimir_document_renta/<id>', methods=["GET"])
 def imprimir_document_renta(id):
     lista_imprimir_renta = db.child("plan_Renta").child(str(id)).get().val()
+    if imprimir_document_renta == tablefinalizadosventa:
+        return render_template(' tablefinalizadosventa')
     return render_template('imprimir_document_renta.html', lista_imprimir_renta=lista_imprimir_renta, id_renta=id)
 
 @app.route('/imprimir_registros_renta', methods=["POST"])
@@ -288,27 +290,32 @@ def eliminar_registro_renta():
 
 
 
-#*=======================================================================================
-#*=======================================================================================
-# ______________ Contratos Generales ______________
-
-@app.route('/contratoGeneral', methods=['GET'])
-def contratoGeneral():
-    return render_template('general.html')
-
+#&====================================== PROCESOS =================================================
+#&=======================================================================================
 # ______________ Contratos en Proceso ______________
 
-@app.route('/pendientes', methods=['GET'])
-def pendientes():
-    return render_template('pendiente.html')
+@app.route('/tablependientesventa', methods=['GET'])
+def tablependientesventa():
+    return render_template('tablependientesventa.html')
 
-@app.route('/finalizado', methods=['GET'])
-def finalizado():
-    return render_template('finalizados.html')
 
-@app.route('/cancelados', methods=['GET'])
-def cancelados():
-    return render_template('cancelado.html')
+@app.route('/tablependientesrenta', methods=['GET'])
+def tablependientesrenta():
+    return render_template('tablependientesrenta.html')
+
+
+@app.route('/tablefinalizadosventa', methods=['GET'])
+def tablefinalizadosventa():
+
+    return render_template('tablefinalizadosventa.html')
+
+@app.route('/tablefinalizadosrenta', methods=['GET'])
+def tablefinalizadosrenta():
+    return render_template('tablefinalizadosrenta.html')  
+
+@app.route('/tablecancelados', methods=['GET'])
+def tablecancelados():
+    return render_template('tablecancelados.html')
 
 # ______________ Facturación ______________
 
