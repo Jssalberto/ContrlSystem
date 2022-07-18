@@ -182,3 +182,20 @@ span{
   cursor: pointer;
   margin-top: 55px;
 }
+.btn5
+{
+  background-color: #00BCD4;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 9px 29px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 55px;
+  position: absolute;
+
+}

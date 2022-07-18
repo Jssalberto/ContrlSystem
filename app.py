@@ -127,6 +127,23 @@ def imprimir_document_recibo(id):
     lista_imprimir_recibo = db.child("Recibo").child(str(id)).get().val()
     return render_template('imprimir_document_recibo.html', lista_imprimir_recibo=lista_imprimir_recibo, id_recibo=id)
 
+@app.route('/imprimir_registros_recibo', methods=["POST"])
+def imprimir_registros_recibo():
+    idrecibo=request.form.get('id')
+    recibo = request.form.get('recibo')
+    fechaexpedicion = request.form.get('fechaexpedicion')
+    telefonocliente = request.form.get('telefonocliente')
+    monto = request.form.get('monto')
+    cantidadletra = request.form.get('cantidadletra')
+    consepto = request.form.get('consepto')
+    quienentrega = request.form.get('quienentrega')
+    quienrecibe = request.form.get('quienrecibe')
+    nuevo_document_impreso_recibo = Recibo(recibo, fechaexpedicion, telefonocliente, monto, cantidadletra, consepto, quienentrega, quienrecibe)
+    nuevo_objeto_impreso_recibo = json.dumps(nuevo_document_impreso_recibo.__dict__)
+    datos_impreso_recibo = json.loads(nuevo_objeto_impreso_recibo)
+    db.child("Recibo").child(str(idrecibo)).update(datos_impreso_recibo)
+    return redirect(url_for(documentrecibo))
+
 
 
 #*============================================VENTA==============================================================
